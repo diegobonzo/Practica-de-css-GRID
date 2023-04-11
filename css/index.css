@@ -1,0 +1,142 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: #eeeeee;
+  color: #000;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.header p {
+  font-size: 50px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  border: 10px solid #000;
+  margin: auto;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.contenedor > div {
+  display: block;
+  padding: 20px;
+  color: white;
+  background: #2f89fc;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+} */
+/* //////RESPONSIVE///// */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: whitesmoke;
+  color: rgb(27, 25, 25);
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+    "header header header"
+    "contenido contenido sidebar"
+    "widget-1 widget-2 sidebar"
+    "footer footer footer";
+}
+
+.container > div,
+.container .header,
+.container .sidebar,
+.container .footer,
+.container .contenido {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.container .header {
+  background: #12203e;
+  color: #fff;
+  /* grid-column-start: 1;
+  grid-column-end: 4; */
+  grid-area: header;
+}
+
+.container .contenido {
+  /* grid-column-start: 1;
+  grid-column-end: 3; */
+  grid-area: contenido;
+}
+
+.container .sidebar {
+  grid-column: 3/4;
+  background: rgb(229, 155, 18);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  /* grid-row: span 2; */
+  grid-area: sidebar;
+}
+
+.container .widget-1,
+.container .widget-2 {
+  background: rgb(39, 172, 233);
+  color: #fff;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .widget-1 {
+  grid-area: widget-1;
+}
+.container .widget-2 {
+  grid-area: widget-2;
+}
+
+.container .footer {
+  background: #12203e;
+  color: #fff;
+  /* grid-column: span 3; */
+  grid-area: footer;
+}
+
+/* @media screen and (max-width: 768px) {
+  .container .contenido {
+    grid-column: 1 / -1;
+  }
+  .container .sidebar {
+    grid-column: 1 / -1;
+  }
+  .container .widget-1 {
+    grid-column: span 2;
+  }
+} */
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "contenido contenido contenido"
+      "sidebar sidebar sidebar"
+      "widget-1 widget-1 widget-2"
+      "footer footer footer";
+  }
+}
